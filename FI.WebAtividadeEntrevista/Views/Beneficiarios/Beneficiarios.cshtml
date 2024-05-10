@@ -1,0 +1,55 @@
+﻿@model WebAtividadeEntrevista.Models.BeneficiariosModel
+@{
+    ViewBag.Title = "Beneficiarios";
+}
+@section scripts{
+    <script>
+        var urlBenefExclusao = '@Url.Action("Excluir", "Beneficiarios", new { area = "" })';
+        var benef = @Html.Raw(Json.Encode(Model));
+        var urlBenefAlteracao = '@Url.Action("Alterar", "Beneficiarios", new { area = "" })';
+        var urlBeneficiariosList = '@Url.Action("BeneficiariosList", "Beneficiarios", new { area = "" })';
+    </script>
+
+    @Scripts.Render("~/bundles/beneficiarios")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+}
+<div id="modalBeneficiarios" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Beneficiários</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="CPF">CPF:</label>
+                            <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 010.011.111-00" maxlength="14">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Nome">Nome:</label>
+                            <input required="required" type="text" class="form-control" id="sNome" name="Nome" placeholder="Ex.: José da Silva" maxlength="255">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            @Html.ActionLink("Incluir", "Incluir", "Beneficiarios", new { }, new { @class = "btn btn-sm btn-Success" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table id="gridBeneficiarios" class="table"></table>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
