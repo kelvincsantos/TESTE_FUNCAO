@@ -151,20 +151,6 @@ namespace WebAtividadeEntrevista.Controllers
             }
         }
 
-        [HttpPost]
-        public JsonResult BeneficiariosList(long idCliente)
-        {
-            try
-            {
-                List<Beneficiario> beneficiarios = new BoBeneficiario().Consultar(idCliente);
-
-                //Return result to jTable
-                return Json(new { Result = "OK", Records = beneficiarios, TotalRecordCount = beneficiarios.Count() });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { Result = "ERROR", Message = ex.Message });
-            }
-        }
+        
     }
 }

@@ -1,4 +1,8 @@
-﻿@section scripts{
+﻿@model WebAtividadeEntrevista.Models.BeneficiariosModel
+@{
+    ViewBag.Title = "Beneficiarios";
+}
+@section scripts{
     <script>
         var urlBenefExclusao = '@Url.Action("Excluir", "Beneficiarios", new { area = "" })';
         var benef = @Html.Raw(Json.Encode(Model));

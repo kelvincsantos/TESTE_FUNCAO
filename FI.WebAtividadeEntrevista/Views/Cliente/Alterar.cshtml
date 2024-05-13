@@ -8,11 +8,12 @@
         var obj = @Html.Raw(Json.Encode(Model));
         var urlRetorno = '@Url.Action("Index", "Cliente", new { area = "" })';
 
-        var urlBenefInclusao = '@Url.Action("Incluir", "Beneficiarios", new { area = "" })';
-var urlBenefExclusao = '@Url.Action("Excluir", "Beneficiarios", new { area = "" })';
-var benef = @Html.Raw(Json.Encode(Model));
+        var urlBenefInclusao = '@Url.Action("Incluir", "Beneficiario", new { area = "" })';
+        var urlBeneficiariosList = '@Url.Action("BeneficiariosList", "Beneficiario", new { area = "" })';
+
+var urlBenefExclusao = '@Url.Action("Excluir", "Beneficiario", new { area = "" })';
+var benef = @Html.Raw(Json.Encode(Model.Beneficiarios));
 var urlBenefAlteracao = '@Url.Action("Alterar", "Beneficiarios", new { area = "" })';
-var urlBeneficiariosList = '@Url.Action("BeneficiariosList", "Beneficiarios", new { area = "" })';
     </script>
     @Scripts.Render("~/bundles/altClientes")
     @Scripts.Render("~/bundles/beneficiarios")

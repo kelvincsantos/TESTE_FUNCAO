@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Beneficiários";
+}
+@section scripts{
+<script>
+    var urlAlteracao = '@Url.Action("Alterar", "Beneficiario", new { area = "" })';
+    var urlClienteList = '@Url.Action("BeneficiarioList", "Beneficiario", new { area = "" })';
+
+</script>
+    @Scripts.Render("~/bundles/listBeneficiarios")
+}
+<h2>@Html.Raw(ViewBag.Title)</h2>
+@Html.ActionLink("Incluir", "Incluir", "Beneficiario", new { }, new { @class= "btn btn-sm btn-primary pull-right" })
+<table id="gridBeneficiario" class="table"></table>
